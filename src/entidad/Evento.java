@@ -63,6 +63,37 @@ public class Evento extends TipoEvento {
 				+ cantEntradas + "]";
 	}
 	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + cantEntradas;
+		result = prime * result + id;
+		result = prime * result + ((nombreEvento == null) ? 0 : nombreEvento.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Evento other = (Evento) obj;
+		if (cantEntradas != other.cantEntradas)
+			return false;
+		if (id != other.id)
+			return false;
+		if (nombreEvento == null) {
+			if (other.nombreEvento != null)
+				return false;
+		} else if (!nombreEvento.equals(other.nombreEvento))
+			return false;
+		return true;
+	}
+
+	@Override
 	public String Descripcion() {
 		String descripcion= "Este es un evento de "+getTipoEvento();
 		return descripcion;

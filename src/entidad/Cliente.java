@@ -7,6 +7,7 @@ public class Cliente {
 	private String DNI;
 	private String Genero;
 	private Direccion direccion;
+	
 	public Cliente(int id, String nombre, String apellido, String dNI, String genero, Direccion direccion) {
 		super();
 		this.id = id;
@@ -16,15 +17,17 @@ public class Cliente {
 		Genero = genero;
 		this.direccion = direccion;
 	}
+	
 	public Cliente() {
 		super();
-		id = id;
+		id = 0;
 		Nombre = "";
 		Apellido = "";
 		DNI = "";
 		Genero = "";
 		direccion = null;
 	}
+	
 	public int getId() {
 		return id;
 	}

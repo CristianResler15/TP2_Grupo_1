@@ -1,6 +1,6 @@
 package entidad;
 
-public class Entrada {
+public class Entrada implements Comparable<Entrada>{
 	
 	//Atributos
 	
@@ -97,9 +97,73 @@ public class Entrada {
 
 
 	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((duracion == null) ? 0 : duracion.hashCode());
+		result = prime * result + ((evento == null) ? 0 : evento.hashCode());
+		result = prime * result + ((fecha == null) ? 0 : fecha.hashCode());
+		result = prime * result + ((horario == null) ? 0 : horario.hashCode());
+		result = prime * result + id;
+		result = prime * result + Float.floatToIntBits(precio);
+		result = prime * result + ((tipo == null) ? 0 : tipo.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Entrada other = (Entrada) obj;
+		if (duracion == null) {
+			if (other.duracion != null)
+				return false;
+		} else if (!duracion.equals(other.duracion))
+			return false;
+		if (evento == null) {
+			if (other.evento != null)
+				return false;
+		} else if (!evento.equals(other.evento))
+			return false;
+		if (fecha == null) {
+			if (other.fecha != null)
+				return false;
+		} else if (!fecha.equals(other.fecha))
+			return false;
+		if (horario == null) {
+			if (other.horario != null)
+				return false;
+		} else if (!horario.equals(other.horario))
+			return false;
+		if (id != other.id)
+			return false;
+		if (Float.floatToIntBits(precio) != Float.floatToIntBits(other.precio))
+			return false;
+		if (tipo == null) {
+			if (other.tipo != null)
+				return false;
+		} else if (!tipo.equals(other.tipo))
+			return false;
+		return true;
+	}
+
+	@Override
 	public String toString() {
 		return "Entrada [id= " + id + " evento = " + evento + " [duracion = " + duracion + "] [fecha = " + fecha + "] [horario = "
 				+ horario + "] [precio = " + precio + "] [tipo = " + tipo + "]";
+	}
+
+	@Override
+	public int compareTo(Entrada e) {
+		if(e.id == id) {
+		return 0;
+		} else {
+			return 1;
+		}
 	}
 	
 	

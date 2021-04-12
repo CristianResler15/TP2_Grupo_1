@@ -97,6 +97,40 @@ public class Deportes extends Evento{
 	//ToString
 
 	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + idDeporte;
+		result = prime * result + ((nacionalidad == null) ? 0 : nacionalidad.hashCode());
+		result = prime * result + ((tipoDeporte == null) ? 0 : tipoDeporte.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Deportes other = (Deportes) obj;
+		if (idDeporte != other.idDeporte)
+			return false;
+		if (nacionalidad == null) {
+			if (other.nacionalidad != null)
+				return false;
+		} else if (!nacionalidad.equals(other.nacionalidad))
+			return false;
+		if (tipoDeporte == null) {
+			if (other.tipoDeporte != null)
+				return false;
+		} else if (!tipoDeporte.equals(other.tipoDeporte))
+			return false;
+		return true;
+	}
+
+	@Override
 	public String toString() {
 		return "Deportes [id = " + idDeporte + " tipo = " + tipoDeporte + "nacionalidad = " + nacionalidad + "]";
 		

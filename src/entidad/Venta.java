@@ -1,23 +1,28 @@
 package entidad;
 
+import java.util.ArrayList;
+
 public class Venta {
+	
 	private int NumeroFactura;
 	private float MontoTotal;
-	private Entrada entrada;
+	private ArrayList<Entrada> entradas;
 	private Cliente cliente;
 	private Fecha fecha;
-	public Venta(int numeroFactura, float montoTotal, Entrada entrada, Cliente cliente, Fecha fecha) {
+	
+	public Venta(int numeroFactura, float montoTotal, ArrayList<Entrada> entradas, Cliente cliente, Fecha fecha) {
 		super();
 		NumeroFactura = numeroFactura;
 		MontoTotal = montoTotal;
-		this.entrada = entrada;
+		this.entradas = entradas;
 		this.cliente = cliente;
 		this.fecha = fecha;
 	}
+	
 	public Venta() {
 		NumeroFactura = 0;
 		MontoTotal = 0;
-		entrada = null;
+		entradas = null;
 		cliente = null;
 		fecha = null;
 	
@@ -34,12 +39,15 @@ public class Venta {
 	public void setMontoTotal(float montoTotal) {
 		MontoTotal = montoTotal;
 	}
-	public Entrada getEntrada() {
-		return entrada;
+	
+	public ArrayList<Entrada> getEntradas() {
+		return entradas;
 	}
-	public void setEntrada(Entrada entrada) {
-		this.entrada = entrada;
+
+	public void setEntradas(ArrayList<Entrada> entradas) {
+		this.entradas = entradas;
 	}
+
 	public Cliente getCliente() {
 		return cliente;
 	}
@@ -52,11 +60,7 @@ public class Venta {
 	public void setFecha(Fecha fecha) {
 		this.fecha = fecha;
 	}
-	@Override
-	public String toString() {
-		return "Venta [NumeroFactura=" + NumeroFactura + ", MontoTotal=" + MontoTotal + ", entrada=" + entrada
-				+ ", cliente=" + cliente + ", fecha=" + fecha + "]";
-	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -64,10 +68,11 @@ public class Venta {
 		result = prime * result + Float.floatToIntBits(MontoTotal);
 		result = prime * result + NumeroFactura;
 		result = prime * result + ((cliente == null) ? 0 : cliente.hashCode());
-		result = prime * result + ((entrada == null) ? 0 : entrada.hashCode());
+		result = prime * result + ((entradas == null) ? 0 : entradas.hashCode());
 		result = prime * result + ((fecha == null) ? 0 : fecha.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -86,10 +91,10 @@ public class Venta {
 				return false;
 		} else if (!cliente.equals(other.cliente))
 			return false;
-		if (entrada == null) {
-			if (other.entrada != null)
+		if (entradas == null) {
+			if (other.entradas != null)
 				return false;
-		} else if (!entrada.equals(other.entrada))
+		} else if (!entradas.equals(other.entradas))
 			return false;
 		if (fecha == null) {
 			if (other.fecha != null)
@@ -98,6 +103,14 @@ public class Venta {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "Venta [NumeroFactura=" + NumeroFactura + ", MontoTotal=" + MontoTotal + ", entradas=" + entradas
+				+ ", cliente=" + cliente + ", fecha=" + fecha + "]";
+	}
+	
+	
 	
 	
 }

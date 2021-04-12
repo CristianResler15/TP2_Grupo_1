@@ -61,6 +61,40 @@ public class Teatro extends Evento{
 	//ToString
 
 	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((actores == null) ? 0 : actores.hashCode());
+		result = prime * result + ((genero == null) ? 0 : genero.hashCode());
+		result = prime * result + id;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Teatro other = (Teatro) obj;
+		if (actores == null) {
+			if (other.actores != null)
+				return false;
+		} else if (!actores.equals(other.actores))
+			return false;
+		if (genero == null) {
+			if (other.genero != null)
+				return false;
+		} else if (!genero.equals(other.genero))
+			return false;
+		if (id != other.id)
+			return false;
+		return true;
+	}
+
+	@Override
 	public String toString() {
 		return "Teatro [id=" + id + ", genero=" + genero + ", actores=" + actores + "]";
 	}

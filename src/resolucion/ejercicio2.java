@@ -1,5 +1,7 @@
 package resolucion;
+
 import java.util.ArrayList;
+import java.util.TreeSet;
 
 import entidad.Actor;
 import entidad.Banda;
@@ -12,15 +14,16 @@ import entidad.Nacionalidad;
 import entidad.Recital;
 import entidad.Teatro;
 import entidad.TipoDeporte;
-import entidad.TipoEntrada;;
-public class ejercicio1 {
+import entidad.TipoEntrada;
 
+public class ejercicio2 {
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
 		final float PrecioVip=1500;
 		final float PrecioEstandar=800;
-		ArrayList<Entrada> arrayEntrada = new ArrayList<Entrada>();
+		TreeSet<Entrada> TreeSetEntradas = new TreeSet<Entrada>();
 		
 		TipoEntrada teGeneral = new TipoEntrada(1, "General");
 		TipoEntrada teVip = new TipoEntrada(2, "Vip");
@@ -71,13 +74,13 @@ public class ejercicio1 {
 		
 		
 		//Se agregan las entradas en el array
-		arrayEntrada.add(entradaDeportes);
-		arrayEntrada.add(entradaRecital);
-		arrayEntrada.add(entradaInfantil1);
-		arrayEntrada.add(entradaInfantil2);
-		arrayEntrada.add(entradaTeatro);
+		TreeSetEntradas.add(entradaDeportes);
+		TreeSetEntradas.add(entradaRecital);
+		TreeSetEntradas.add(entradaInfantil1);
+		TreeSetEntradas.add(entradaInfantil2);
+		TreeSetEntradas.add(entradaTeatro);
 		
-		for (Entrada entrada : arrayEntrada) {
+		for (Entrada entrada : TreeSetEntradas) {
 			System.out.println(entrada);
 		}
 		

@@ -58,6 +58,40 @@ public class Banda  {
 	//ToString
 	
 	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		result = prime * result + ((integrantes == null) ? 0 : integrantes.hashCode());
+		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Banda other = (Banda) obj;
+		if (id != other.id)
+			return false;
+		if (integrantes == null) {
+			if (other.integrantes != null)
+				return false;
+		} else if (!integrantes.equals(other.integrantes))
+			return false;
+		if (nombre == null) {
+			if (other.nombre != null)
+				return false;
+		} else if (!nombre.equals(other.nombre))
+			return false;
+		return true;
+	}
+
+	@Override
 	public String toString() {
 		return "Banda [id=" + id + ", nombre=" + nombre + ", integrantes=" + integrantes + "]";
 	}
