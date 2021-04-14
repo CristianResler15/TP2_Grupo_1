@@ -9,6 +9,7 @@ import entidad.Cliente;
 import entidad.Deportes;
 import entidad.Direccion;
 import entidad.Entrada;
+import entidad.Factura;
 import entidad.Fecha;
 import entidad.Genero;
 import entidad.Infantil;
@@ -17,7 +18,7 @@ import entidad.Recital;
 import entidad.Teatro;
 import entidad.TipoDeporte;
 import entidad.TipoEntrada;
-import entidad.VentaEntradas;
+import entidad.Venta;
 
 public class ejercicio2 {
 	
@@ -110,9 +111,23 @@ public class ejercicio2 {
 		Fecha fechaVenta1 = new Fecha(19, 10, 2019);
 		Fecha fechaVenta2 = new Fecha(02, 12, 2019);
 		
+		ArrayList<Entrada> entradas1 = new ArrayList<Entrada>();
+		ArrayList<Entrada> entradas2 = new ArrayList<Entrada>();
 		
-		VentaEntradas venta1 = new VentaEntradas(entradaDeportes, fechaVenta1, cliente1, 3);
-		VentaEntradas venta2 = new VentaEntradas(entradaRecital, fechaVenta2, cliente2, 5);
+		entradas1.add(entradaDeportes);
+		entradas1.add(entradaRecital);
+		
+		entradas2.add(entradaDeportes);
+		entradas2.add(entradaRecital);
+		entradas2.add(entradaDeportes);
+		entradas2.add(entradaRecital);
+		
+		Factura factura1 = new Factura(entradas1, fechaVenta1, cliente1);
+		Factura factura2 = new Factura(entradas2, fechaVenta2, cliente2);
+		
+		
+		Venta venta1 = new Venta(factura1);
+		Venta venta2 = new Venta(factura2);
 		
 		System.out.println(venta1);
 		System.out.println(venta2);

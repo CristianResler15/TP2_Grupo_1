@@ -4,112 +4,75 @@ import java.util.ArrayList;
 
 public class Venta {
 	
-	private int NumeroFactura;
+	//Atributos
+	
+	private static int count = 1;
+	private int idVenta;
+	Factura factura;
 	private float MontoTotal;
-	private ArrayList<Entrada> entradas;
-	private Cliente cliente;
-	private Fecha fecha;
 	
-	public Venta(int numeroFactura, float montoTotal, ArrayList<Entrada> entradas, Cliente cliente, Fecha fecha) {
+	public Venta(Factura factura) {
 		super();
-		NumeroFactura = numeroFactura;
-		MontoTotal = montoTotal;
-		this.entradas = entradas;
-		this.cliente = cliente;
-		this.fecha = fecha;
+		this.idVenta = count++;
+		this.factura = factura;
+		this.MontoTotal = calcularMonto(factura);
+			  }
+	
+	public float calcularMonto(Factura factura) {
+		
+		float monto = 0; 
+		
+		for (Entrada entradas : factura) {
+			
+			monto += entradas.getPrecio();
+		}
+		
+		return monto;
+		
 	}
 	
-	public Venta() {
-		NumeroFactura = 0;
-		MontoTotal = 0;
-		entradas = null;
-		cliente = null;
-		fecha = null;
+	// Getters & Setters
 	
+	public static int getCount() {
+		return count;
 	}
-	public int getNumeroFactura() {
-		return NumeroFactura;
+
+	public int getIdVenta() {
+		return idVenta;
 	}
-	public void setNumeroFactura(int numeroFactura) {
-		NumeroFactura = numeroFactura;
+
+	public Factura getFactura() {
+		return factura;
 	}
+
 	public float getMontoTotal() {
 		return MontoTotal;
 	}
+
+	public static void setCount(int count) {
+		Venta.count = count;
+	}
+
+	public void setIdVenta(int idVenta) {
+		this.idVenta = idVenta;
+	}
+
+	public void setFactura(Factura factura) {
+		this.factura = factura;
+	}
+
 	public void setMontoTotal(float montoTotal) {
 		MontoTotal = montoTotal;
 	}
-	
-	public ArrayList<Entrada> getEntradas() {
-		return entradas;
-	}
 
-	public void setEntradas(ArrayList<Entrada> entradas) {
-		this.entradas = entradas;
-	}
-
-	public Cliente getCliente() {
-		return cliente;
-	}
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-	public Fecha getFecha() {
-		return fecha;
-	}
-	public void setFecha(Fecha fecha) {
-		this.fecha = fecha;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + Float.floatToIntBits(MontoTotal);
-		result = prime * result + NumeroFactura;
-		result = prime * result + ((cliente == null) ? 0 : cliente.hashCode());
-		result = prime * result + ((entradas == null) ? 0 : entradas.hashCode());
-		result = prime * result + ((fecha == null) ? 0 : fecha.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Venta other = (Venta) obj;
-		if (Float.floatToIntBits(MontoTotal) != Float.floatToIntBits(other.MontoTotal))
-			return false;
-		if (NumeroFactura != other.NumeroFactura)
-			return false;
-		if (cliente == null) {
-			if (other.cliente != null)
-				return false;
-		} else if (!cliente.equals(other.cliente))
-			return false;
-		if (entradas == null) {
-			if (other.entradas != null)
-				return false;
-		} else if (!entradas.equals(other.entradas))
-			return false;
-		if (fecha == null) {
-			if (other.fecha != null)
-				return false;
-		} else if (!fecha.equals(other.fecha))
-			return false;
-		return true;
-	}
-
+	//Metodo toString()
 	@Override
 	public String toString() {
-		return "Venta [NumeroFactura=" + NumeroFactura + ", MontoTotal=" + MontoTotal + ", entradas=" + entradas
-				+ ", cliente=" + cliente + ", fecha=" + fecha + "]";
+		return "Venta [idVenta=" + idVenta + ", factura=" + factura + ", MontoTotal=" + MontoTotal + "]";
 	}
 	
+
+
 	
 	
 	
