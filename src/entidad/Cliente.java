@@ -11,22 +11,24 @@ public class Cliente {
 	public Cliente(int id, String nombre, String apellido, String dNI, String genero, Direccion direccion) {
 		super();
 		this.id = id;
-		Nombre = nombre;
-		Apellido = apellido;
-		DNI = dNI;
-		Genero = genero;
+		this.Nombre = nombre;
+		this.Apellido = apellido;
+		this.DNI = dNI;
+		this.Genero = genero;
 		this.direccion = direccion;
 	}
 	
 	public Cliente() {
 		super();
-		id = 0;
-		Nombre = "";
-		Apellido = "";
-		DNI = "";
-		Genero = "";
-		direccion = null;
+		this.id = 0;
+		this.Nombre = "";
+		this.Apellido = "";
+		this.DNI = "";
+		this.Genero = "";
+		this.direccion = null;
 	}
+	
+	
 	
 	public int getId() {
 		return id;
@@ -66,8 +68,8 @@ public class Cliente {
 	}
 	@Override
 	public String toString() {
-		return "Cliente [id=" + id + ", Nombre=" + Nombre + ", Apellido=" + Apellido + ", DNI=" + DNI + ", Genero="
-				+ Genero + ", direccion=" + direccion + "]";
+		return "Cliente [id=" + id + " ] , [Nombre=" + Nombre + " ], [Apellido=" + Apellido + " ] , [DNI=" + DNI + " ] , [Genero="
+				+ Genero + " ] , [direccion=" + direccion + " ]";
 	}
 	@Override
 	public int hashCode() {

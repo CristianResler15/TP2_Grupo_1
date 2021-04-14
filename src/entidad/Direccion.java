@@ -1,32 +1,24 @@
 package entidad;
 
 public class Direccion {
-	private int id;
 	private String direccion;
 	private String localidad;
 	private String provincia;
 	
-	public Direccion(int id, String direccion, String localidad, String provincia) {
+	public Direccion(String direccion, String localidad, String provincia) {
 
-		this.id = id;
 		this.direccion = direccion;
 		this.localidad = localidad;
 		this.provincia = provincia;
 	}
 	public Direccion() {
-
-		id=0;
-		direccion="";
-		localidad="";
-		provincia="";
+		
+		this.direccion="";
+		this.localidad="";
+		this.provincia="";
 	}
 	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+	
 	public String getDireccion() {
 		return direccion;
 	}
@@ -50,7 +42,6 @@ public class Direccion {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((direccion == null) ? 0 : direccion.hashCode());
-		result = prime * result + id;
 		result = prime * result + ((localidad == null) ? 0 : localidad.hashCode());
 		result = prime * result + ((provincia == null) ? 0 : provincia.hashCode());
 		return result;
@@ -69,8 +60,6 @@ public class Direccion {
 				return false;
 		} else if (!direccion.equals(other.direccion))
 			return false;
-		if (id != other.id)
-			return false;
 		if (localidad == null) {
 			if (other.localidad != null)
 				return false;
@@ -85,8 +74,8 @@ public class Direccion {
 	}
 	@Override
 	public String toString() {
-		return "Direccion [id=" + id + ", direccion=" + direccion + ", localidad=" + localidad + ", provincia="
-				+ provincia + "]";
+		return "Direccion [direccion=" + direccion + " ] , [localidad=" + localidad + " ] , [provincia="
+				+ provincia + " ]";
 	}
 	
 	

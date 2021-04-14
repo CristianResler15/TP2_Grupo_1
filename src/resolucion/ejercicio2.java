@@ -5,7 +5,9 @@ import java.util.TreeSet;
 
 import entidad.Actor;
 import entidad.Banda;
+import entidad.Cliente;
 import entidad.Deportes;
+import entidad.Direccion;
 import entidad.Entrada;
 import entidad.Fecha;
 import entidad.Genero;
@@ -15,6 +17,7 @@ import entidad.Recital;
 import entidad.Teatro;
 import entidad.TipoDeporte;
 import entidad.TipoEntrada;
+import entidad.VentaEntradas;
 
 public class ejercicio2 {
 	
@@ -96,6 +99,23 @@ public class ejercicio2 {
 			System.out.println("No son iguales las entradas");
 		}
 		
+		//Venta de Entradas
+		
+		Direccion direccionCli1 = new Direccion("Jorge Newberry 5768", "CABA", "Buenos Aires");
+		Direccion direccionCli2 = new Direccion("Cabildo 500", "CABA", "Buenos Aires");
+		
+		Cliente cliente1 = new Cliente(1, "Clara", "Sanchez", "38.547.214", "F", direccionCli1);
+		Cliente cliente2 = new Cliente(2, "Jorge", "Gomez", "25.789.147", "M", direccionCli2);
+		
+		Fecha fechaVenta1 = new Fecha(19, 10, 2019);
+		Fecha fechaVenta2 = new Fecha(02, 12, 2019);
+		
+		
+		VentaEntradas venta1 = new VentaEntradas(fechaVenta1, cliente1, PrecioVip, 3);
+		VentaEntradas venta2 = new VentaEntradas(fechaVenta2, cliente2, PrecioEstandar, 5);
+		
+		System.out.println(venta1);
+		System.out.println(venta2);
 		
 	}
 
