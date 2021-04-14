@@ -12,6 +12,7 @@ public class Factura {
 	Fecha fechaDeVenta;
 	Cliente cliente;
 	private int cantEntradasAdquiridas;
+	private float MontoTotal;
 
 	
 	//Constructor con parametros
@@ -22,6 +23,20 @@ public class Factura {
 		this.fechaDeVenta = fechaDeVenta;
 		this.cliente = cliente;
 		this.cantEntradasAdquiridas = entradas.size();
+		this.MontoTotal = calcularMonto(entradas);
+	}
+	
+		public float calcularMonto(ArrayList<Entrada> entradas) {
+		
+		float monto = 0; 
+		
+		for (Entrada entrada : entradas) {
+			
+			monto += entrada.getPrecio();
+		}
+		
+		return monto;
+		
 	}
 
 	//Getters & Setters
@@ -73,13 +88,16 @@ public class Factura {
 	public void setCantEntradasAdquiridas(int cantEntradasAdquiridas) {
 		this.cantEntradasAdquiridas = cantEntradasAdquiridas;
 	}
-
+	
 	//metodo toString()
+
 	@Override
 	public String toString() {
-		return "Factura [numeroFactura=" + numeroFactura + ", entrada=" + entradas + ", fechaDeVenta=" + fechaDeVenta
-				+ ", cliente=" + cliente + ", cantEntradasAdquiridas=" + cantEntradasAdquiridas + "]";
+		return "Factura [numeroFactura= " + numeroFactura + "] , [entradas= " + entradas + " ] , [fechaDeVenta=" + fechaDeVenta
+				+ " ] , [cliente= " + cliente + " ] , [cantEntradasAdquiridas= " + cantEntradasAdquiridas + "] , [MontoTotal= "
+				+ MontoTotal + " ]";
 	}
+	
 
 	
 	
