@@ -111,8 +111,8 @@ public class ejercicio2 {
 		Fecha fechaVenta2 = new Fecha(02, 12, 2019);
 		
 		
-		VentaEntradas venta1 = new VentaEntradas(fechaVenta1, cliente1, PrecioVip, 3);
-		VentaEntradas venta2 = new VentaEntradas(fechaVenta2, cliente2, PrecioEstandar, 5);
+		VentaEntradas venta1 = new VentaEntradas(entradaDeportes, fechaVenta1, cliente1, 3);
+		VentaEntradas venta2 = new VentaEntradas(entradaRecital, fechaVenta2, cliente2, 5);
 		
 		System.out.println(venta1);
 		System.out.println(venta2);
