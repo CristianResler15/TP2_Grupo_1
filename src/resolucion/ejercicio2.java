@@ -84,6 +84,19 @@ public class ejercicio2 {
 			System.out.println(entrada);
 		}
 		
+		
+		//Ejercicio 3
+		
+		Entrada entrada1 = new Entrada(1, deporte, "2 hs", date, "12 am", PrecioDeporte, teGeneral);
+		Entrada entrada2= new Entrada(1, deporte, "2 hs", date, "12 am", PrecioDeporte, teGeneral);
+		
+		if (entrada1.equals(entrada2)) {
+			System.out.println("Son iguales las entradas");
+		} else {
+			System.out.println("No son iguales las entradas");
+		}
+		
+		
 	}
 
 }
